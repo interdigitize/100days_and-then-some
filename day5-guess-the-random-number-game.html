@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div>
+
+  </div>
+  <script>
+  // works, but console.logs are all over the place, not in any particular order
+  var n, randomNum, input;
+  var i = 1;
+  // var isNum = /\[0-9]/g;
+
+  while (true) {
+    n = parseInt(prompt('What should the highest number be?'));
+    if (typeof n === 'number'){
+      break;
+    }
+    else if (n === null){
+      n = 1;
+      break;
+    }
+  }
+
+  console.log('max: ' + n);
+
+  function getRandomIntInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  randomNum = parseInt(getRandomIntInclusive(1, n));
+  console.log('randomNum: ' + randomNum);
+
+
+  while (true){
+    input = prompt("Bet you can't guess the random number...");
+    input = parseInt(input);
+    console.log(i + ' guess: ' + input);
+    if (input === null) {
+      break;
+    }
+    else if (input === randomNum){
+      console.log('Spot on!\nIt only took you ' + i + ' guesses.');
+      break;
+    }
+    else if (input > randomNum){
+      console.log('You are guessing too high...');
+      i++;
+    }
+    else if (input < randomNum){
+      console.log('You are guessing too low...');
+      i++;
+    }
+  }
+  //noprotect
+
+  document.querySelector('div').innerHTML = '<img src="https://media.giphy.com/media/YTbZzCkRQCEJa/giphy.gif" alt="Celebrate"/><br> Spot on!\nIt only took you ' + i + ' guesses.';
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body{
+        font-family:sans-serif;
+      }
+      #money{
+        background-color:DarkOliveGreen;
+      }
+      #oprah{
+        background-color:Purple;
+      }
+      #opera{
+        background-color:DarkCyan;
+      }
+      [type='button'] {
+        margin:20px auto;
+        padding:5px;
+        width:50%;
+        border-radius:15px;
+        text-align:center;
+        color:white;
+        font-size:1.5em;
+      }
+      #target{
+        background-color:CornflowerBlue;
+        width:50px;
+        height:50px;
+        border-radius:15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="money" type='button'><p>Show Me the Money</p></div>
+    <div></div>
+    <div id="oprah" type='button'><p>Show Me the Oprah</p></div>
+    <div id="opera" type='button'><p>Show Me the Opera</p></div>
+
+    <!-- <div id="target"></div> -->
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script>
+      $('div').on('click', function(){
+        console.log('A div has been clicked!');
+      });
+      $('#money').click(function(){
+        $('img').hide();
+        $('iframe').hide();
+        $('img + p').hide();
+        $('iframe + p').hide();
+        $('body').prepend('<img src="http://homefrontunited.com/wp-content/uploads/2016/02/showmethemoney.png" alt=""/>  <p>Everyone wants to see the money! Check your wallet... or google search.</p>');
+        });
+      $('#oprah').click(function(){
+        $('img').hide();
+        $('iframe').hide();
+        $('img + p').hide();
+        $('iframe + p').hide();
+        $('<img src="http://billboards.values.com/pdf-thumbnails/original/encouragement_oprah_winfrey.jpg?1398893935" alt=""/> <p>Okay, here she is.</p>').show().insertAfter('#money');
+      });
+      $('#opera').click(function(){
+        $('img').hide();
+        $('img + p').hide();
+        $('body').show().append('<iframe width="420" height="315" src="https://www.youtube.com/embed/xCFEk6Y8TmM" frameborder="0" allowfullscreen></iframe> <p>Shhhhhh....just hit play and listen.</p>');
+      });
+//I think #6 has to use the toggle class to switch between show and hide, but I am having a hard time making it work, but I have to get to work. I will ask in class.
+    </script>
+  </body>
+</html>
