@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <canvas id="myChart" width="400" height="400"></canvas>
+  <p>Data points are based on stereotypes and conversations. I will use real data sets when I learn how.</p>
+  <p>Chart.js Documentation: <br>
+    <a href="http://www.chartjs.org/docs/#line-chart">http://www.chartjs.org/docs/#line-chart</a>
+  </p>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0/Chart.js"></script>
+  <script>
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["Kids", "College Students", "Older Folk"],
+      datasets: [{
+        label: 'Hours of sleep',
+        data: [10, 5, 8],
+        backgroundColor : "rgba(0,51,153,.5)",
+        borderColor: "rgba(0,51,153,.8)",
+        fontColor: '#333'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  });
+  </script>
+
+
+</body>
+</html>
