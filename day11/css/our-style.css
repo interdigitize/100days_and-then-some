@@ -1,0 +1,40 @@
+body {
+  background-color: #fff;
+}
+
+.navbar{
+  margin-bottom:0px;
+  min-height:70px;
+}
+
+.jumbotron {
+	background-color: #F59D33;
+}
+
+.footer {
+	clear:both;
+	padding: 50px;
+	background-color: #F59D33;
+}
+
+.text-muted {
+	color: #000000;
+	text-align: center;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.dotted {
+  font-family: 'Raleway Dots', cursive;
+}
+
+.price{
+  font-size: 1.2em;
+}
+
+.category{
+  font-size: .7em;
+  text-align:right;
+}
