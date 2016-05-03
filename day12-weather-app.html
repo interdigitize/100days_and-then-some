@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+  body {
+    font-family: sans-serif;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rebeccapurple;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: mediumpurple;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: mediumpurple;
+    color: white;
+  }
+
+  .active {
+    background-color: indigo;
+    color: white;
+}
+  </style>
+</head>
+<body>
+  <div id="links">
+    <ul>
+      <li><a id="city1">Irvine</a></li>
+      <li><a id="city2">Denver</a></li>
+      <li><a id="city3">New York</a></li>
+    </ul>
+  </div>
+  <div id="container">
+  </div>
+  <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+  <script type="text/javascript">
+
+
+  var to_be_run_on_server_response = function(weather_data){
+    var sunrise = new Date(weather_data.sys.sunrise * 1000);
+    var sunset = new Date(weather_data.sys.sunset * 1000);
+
+    $('#container').append("<p>current temperature: " + weather_data.main.temp + "</p>");
+    $('#container').append("<p>low temperature: " + weather_data.main.temp_min + "</p>" + "<p>high temperature: " + weather_data.main.temp_max + "</p>");
+    $('#container').append("<p>description: " + weather_data.weather[0].description + "</p>");
+    $('#container').append("<p>wind speed: " + weather_data.wind.speed + "</p>");
+    $('#container').append("<p>sunrise time: " + sunrise + "</p>");
+    $('#container').append("<p>sunset time: " + sunset + "</p>");
+  };
+
+
+
+
+
+  $('#city1').click(function(event){
+    event.preventDefault();
+    $("a").removeClass("active");
+    $("#city1").addClass("active");
+    $('#container').empty();
+    $('#container').append("<p>The data is currently being fetched...</p>")
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=Irvine&mode=json&units=imperial&APPID=93b03ba103c6cabec96f47a6f650769e').success(to_be_run_on_server_response);
+    $('#container').append("<p>(Actually, it's not... Firebase requires HTTPS. HTTPS is a paid <a href='http://openweathermap.org/api' target='_blank'>Open Weather Map API</a> feature above my dev dailies budget... but it does work on <a href='http://jsbin.com/nunosehevi/edit?html,output' target='_blank'>JSbin</a>)</p>")
+  });
+
+  $('#city2').click(function(event){
+    event.preventDefault();
+    $("a").removeClass("active");
+    $("#city2").addClass("active");
+    $('#container').empty();
+    $('#container').append("<p>The data is currently being fetched...</p>")
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=Denver&mode=json&units=imperial&APPID=93b03ba103c6cabec96f47a6f650769e').success(to_be_run_on_server_response);
+    $('#container').append("<p>(Actually, it's not... Firebase requires HTTPS. HTTPS is a paid <a href='http://openweathermap.org/api' target='_blank'>Open Weather Map API</a> feature above my dev dailies budget... but it does work on <a href='http://jsbin.com/nunosehevi/edit?html,output' target='_blank'>JSbin</a>)</p>")
+  });
+  $('#city3').click(function(event){
+    event.preventDefault();
+    $("a").removeClass("active");
+    $("#city3").addClass("active");
+    $('#container').empty();
+    $('#container').append("<p>The data is currently being fetched...</p>")
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=New%20York&mode=json&units=imperial&APPID=93b03ba103c6cabec96f47a6f650769e').success(to_be_run_on_server_response);
+    $('#container').append("<p>(Actually, it's not... Firebase requires HTTPS. HTTPS is a paid <a href='http://openweathermap.org/api' target='_blank'>Open Weather Map API</a> feature above my dev dailies budget... but it does work on <a href='http://jsbin.com/nunosehevi/edit?html,output' target='_blank'>JSbin</a>)</p>")
+  });
+
+  </script>
+</body>
+</html>
