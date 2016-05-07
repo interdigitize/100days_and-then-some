@@ -5,13 +5,14 @@
   <title></title>
 </head>
 <body>
+  <p>Not much to look at without opening the inspector... (Cmd + Opt + I) on a Mac. Ctrl + Shift + I on a PC.</p>
   <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
   <script type="text/javascript">
 
   function multiplies_by(n){
     return function(n2){console.log(n * n2);};
   }
-  
+
   var times5 = multiplies_by(5);
   times5(4); // 20
 
