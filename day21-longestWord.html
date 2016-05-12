@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<style>
+	.highlight{
+		background-color: yellow;
+		font-weight:bold;
+	}
+	</style>
+</head>
+<body>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Find the Longest Word</h1>
+			<p>Paste a sentence or paragraph into the text field below and click 'GO' to find the longest word. </p>
+		</div>
+	</div>
+
+	<div class="container">
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="col-md-12">
+				<form id="target">
+					<textarea type="text" name="words" value=""  class="form-control" id="words" rows="3" ></textarea>
+					<br>
+					<input type="submit" value="GO" class="btn btn-default">
+				</form>
+				<br><br>
+				<div id='theLongWord'></div>
+
+			</div>
+		</div>
+
+		<hr>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script type="text/javascript">
+	$('#target').submit(function(){
+		event.preventDefault();
+		var sentence =  $('textarea[name="words"]').val();
+
+		function longestWord (sentence) {
+
+			if(typeof sentence !== 'string'){
+				return 'The input must be a string.';
+			}
+			else if(sentence === ""){
+				return 'The input string is empty.';
+			}
+
+			var array = sentence.split(" ");
+			var longWord = array[0];
+
+			for(var i = 0; i < array.length; i++){
+				if (array[i].length > longWord.length){
+					longWord = array[i];
+				}
+			}
+
+			return longWord;
+		}
+		var longWord = longestWord(sentence);
+		$('#theLongWord').html('The longest word is <span>' + longWord + '</span>.');
+		$('span').addClass('highlight');
+	});
+
+	</script>
+
+
+</body>
+</html>
