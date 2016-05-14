@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Generate a Range of Numbers</h1>
+      <p>Enter a minimum number, a maximum number, and an increment value then click the PRINT button.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-12">
+        <form id="target">
+          <input type="text" name="min" class="form-control" placeholder="minimum number">
+          <input type="text" name="max" class="form-control" placeholder="maximum number">
+          <input type="text" name="step" class="form-control" placeholder="increment by...">
+          <br>
+          <input type="submit" value="PRINT" class="btn btn-default">
+        </form>
+        <br><br>
+        <div id='numbers'></div>
+
+      </div>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p></p>
+    </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+
+
+  $('#target').submit(function(){
+    event.preventDefault();
+    var min = checkVal($('input[name="min"]').val());
+    var max =  checkVal($('input[name="max"]').val());
+    var step = checkVal($('input[name="step"]').val());
+
+    function generateRange(min, max, step) {
+      var rangeArray = [];
+
+      if(step > 0){
+        for(var i = min; i <= max; i+=step ){
+          rangeArray.push(i);
+        }
+        return rangeArray;
+      }
+      else {
+        for(var j = max; j >= min; j+=step ){
+          rangeArray.push(j);
+        }
+        return rangeArray;
+      }
+    }
+
+    var range = generateRange(min, max, step);
+    $('#numbers').text("Numbers: " + range);
+
+  });
+
+function checkVal(input){
+      if(isNaN(input) === true){
+      return console.log("That is not a number. Try again.");
+    }else{
+      return parseInt(input);
+    }
+}
+
+  </script>
+
+
+</body>
+</html>
