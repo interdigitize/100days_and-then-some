@@ -47,6 +47,11 @@
     var max =  checkVal($('input[name="max"]').val());
     var step = checkVal($('input[name="step"]').val());
 
+if (min === "That is not a number. Try again." || max === "That is not a number. Try again." || step === "That is not a number. Try again."){
+  $('#numbers').text("That is not a number. Try again... ");
+}
+else{
+
     function generateRange(min, max, step) {
       var rangeArray = [];
 
@@ -64,14 +69,14 @@
       }
     }
 
-    var range = generateRange(min, max, step);
-    $('#numbers').text("Numbers: " + range);
-
+         var range = generateRange(min, max, step);
+     $('#numbers').text("Numbers: " + range);
+}
   });
 
 function checkVal(input){
       if(isNaN(input) === true){
-      return console.log("That is not a number. Try again.");
+      return "That is not a number. Try again.";
     }else{
       return parseInt(input);
     }
