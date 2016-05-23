@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Revers a Random Number</h1>
+      <p>Enter a number and click the REVERSE button.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-12">
+        <form id="target">
+          <input type="text" name="num" class="form-control" placeholder="a random number">
+          <br>
+          <input type="submit" value="REVERSE" class="btn btn-default">
+        </form>
+        <br><br>
+        <div id='numbers'></div>
+
+      </div>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p></p>
+    </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+
+
+  $('#target').submit(function(){
+    event.preventDefault();
+    var num = checkVal($('input[name="num"]').val());
+
+if (num === "That is not a number. Try again." ){
+  $('#numbers').text("That is not a number. Try again... ");
+}
+else{
+    function digitize(n) {
+      var newArray = n.toString().split("").reverse();
+      return newArray.map(strToNum);
+    }
+
+    function strToNum(element) {
+      return parseInt(element);
+    }
+
+    var reversed = digitize(num);
+     $('#number').text("The number reversed: " + reversed);
+}
+  });
+
+function checkVal(input){
+      if(isNaN(input) === true){
+      return "That is not a number. Try again.";
+    }else{
+      return parseInt(input);
+    }
+}
+
+  </script>
+
+
+</body>
+</html>
