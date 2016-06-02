@@ -1,3 +1,5 @@
+// WORK IN PROGRESS 
+
 // Given an array of deliveries, return an object that contains a key for each destination we deliver to. The value of each key should be how many deliveries we will be making to that destination
 
 var deliveries = [
