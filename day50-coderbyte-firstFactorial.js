@@ -3,7 +3,7 @@ function FirstFactorial(num) {
     for(var i = num; i > 0; i--){
         answer *= i;
     }
-    return answer
+    return answer;
 }
 console.log(FirstFactorial(4)); //24
 
