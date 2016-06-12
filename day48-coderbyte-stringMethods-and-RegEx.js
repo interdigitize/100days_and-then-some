@@ -75,6 +75,7 @@ console.log(pos);
 //A question mark makes a part of a pattern “optional”, meaning it may occur zero or one time.
 //To indicate that a pattern should occur a precise number of times, use curly braces. Putting {4} after an element, for example, requires it to occur exactly four times. It is also possible to specify a range this way: {2,4} means the element must occur at least twice and at most four times.
 //To invert a set of characters—that is, to express that you want to match any character except the ones in the set—you can write a caret (^) character after the opening bracket.
+//If we want to enforce that the match must span the whole string, we can add the markers ^ and $. The caret matches the start of the input string, while the dollar sign matches the end. So, /^\d+$/ matches a string consisting entirely of one or more digits, /^!/ matches any string that starts with an exclamation mark, and /x^/ does not match any string (there cannot be an x before the start of the string).
 
 //regex METHODS = test, exec, match
 
