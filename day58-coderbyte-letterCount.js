@@ -8,21 +8,20 @@ function LetterCountI(str) {
       return letters[letterIndex].charCodeAt(eachLetter);
     });
       letterCharCodes = letterCharCodes.sort(function(a,b){return a-b;});
+
+
       var letterCount = 1;
-      var letterCountArray = letterCharCodes.filter(function(charCo, index){
-        if(letterCharCodes[index - 1] === letterCharCodes[index]){
+      return letterCharCodes.map(function(charCo, index){
+        if(letterCharCodes[index - 1] === letterCharCodes[index] && letterCharCodes[index] !== letterCharCodes.length){
           letterCount++;
         }
-        console.log(charCo, letterCount);
-        if (letterCount >= 2){
-          return [charCo, letterCount]
-        }
-      });
-      return letterCountArray;
+        console.log([charCo, letterCount])
+        return [charCo, letterCount]
+      }).filter(function(el, index){if (el[1] >= 2){return el;};});
 
   });
-
 }
+console.log(String.fromCharCode(111));
 
 // keep this function call here
 console.log(LetterCountI("Todoy is"));
