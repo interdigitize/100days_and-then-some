@@ -8,7 +8,7 @@ function CountingMinutesI(str) {
   console.log(hours + "\n" + pmCheck);
 
   var firstTime = str.match(/.+?(?=\-)/);
-  var secondTime = str.match(/(.-).*/);
+  var secondTime = str.match(/(?=\-).+$/);
 
 console.log(firstTime + "\n" + secondTime);
   var minutes = str.match(/:(\d+)/);
