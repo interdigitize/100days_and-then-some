@@ -8,15 +8,12 @@ function MeanMode(arr) {
     return el === arr[index-1];
   });
 
-
   if (arrTotal / arr.length === arrMode[0]){
     return 1;
   }
   else{
     return 0;
   }
-
-
 }
 
 console.log(MeanMode([4, 4, 4, 6, 2]));
