@@ -1,22 +1,28 @@
 var isMonotone = function(arr){
-  if (arr.length < 1){
-    return true;
-  }
-  return arr.map(function(x, index){
-    if(arr[0] === arr[index]){
-      return true;
-    }
-    if(x >= arr[index-1]){
-      return true;
-    }
-    return false
-  }).reduce(function(pre, cur){
-    if(pre === true && pre === cur){
-      return true;
-    }
-    return false;
+  return arr.every(function(x, index){
+    return index === 0 ? true : arr[index] >= arr[index-1];
   });
 }
+
+// var isMonotone = function(arr){
+//   if (arr.length < 1){
+//     return true;
+//   }
+//   return arr.map(function(x, index){
+//     if(arr[0] === arr[index]){
+//       return true;
+//     }
+//     if(x >= arr[index-1]){
+//       return true;
+//     }
+//     return false
+//   }).reduce(function(pre, cur){
+//     if(pre === true && pre === cur){
+//       return true;
+//     }
+//     return false;
+//   });
+// }
 
 console.log(isMonotone([5,4,3,2,1]));
 
