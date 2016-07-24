@@ -14,7 +14,6 @@ function longestConsec(strarr, k) {
   //   answer += strarr[longestIndex];
   // }
   // return answer;
-
   var answer = longest;
   var test = strarr.filter(function(el, index){
     while(longestIndex < k ){ //|| n = 0 || k <= 0
