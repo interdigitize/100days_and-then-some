@@ -9,16 +9,24 @@ function longestConsec(strarr, k) {
       longestIndex = index;
     }
   });
-  var test = strarr.reduce(function(longestConsec, cur){
+  // var answer = longest;
+  // for(longestIndex; longestIndex < k; longestIndex++){
+  //   answer += strarr[longestIndex];
+  // }
+  // return answer;
+
+  var answer = longest;
+  var test = strarr.filter(function(el, index){
     while(longestIndex < k ){ //|| n = 0 || k <= 0
-      return longestConsec += cur;
       longestIndex++;
+      answer += strarr[longestIndex];
     }
+    return answer;
   });
-  console.log(test);
+  return answer;
 }
 
-console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2));
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 4));
 
 // longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"
 //
