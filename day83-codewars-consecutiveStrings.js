@@ -14,7 +14,7 @@ function longestConsec(strarr, k) {
   return answer;
 }
 
-console.log(longestConsec([], 0));
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 4));
 
 // longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"
 //
