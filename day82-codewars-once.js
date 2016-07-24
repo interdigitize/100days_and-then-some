@@ -1,5 +1,5 @@
 //You'll implement once, a function that takes another function as an argument, and returns a new version of that function that can only be called once.
-//Subsequent calls to the resulting function should have no effect (and should return undefined).
+//Subsequent calls to the resulting function should have no effect (and should return undefined).pho
 
 function once(fn) {
   var ex = false;
@@ -11,17 +11,14 @@ function once(fn) {
   }
 }
 
-
-// var logOnce = once(function(x){return console.log(x)})
-// logOnce("foo") // -> "foo"
-// logOnce("bar") // -> undefined
-
 // var sqr = once(function(x){ return x * x})
 // console.log(sqr(2)); // -> 4
 // console.log(sqr(4)); // -> undefined
 
 // var logOnce = once(function(x){return console.log(x)})
-//
+// logOnce("foo") // -> "foo"
+// logOnce("bar") // -> undefined
+
 // describe("case 2", function(){
 //   it("console.log foo", function(){
 //     Test.assertEquals(logOnce("foo"), "foo")
