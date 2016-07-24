@@ -1,31 +1,20 @@
 //You are given an array strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
 
 function longestConsec(strarr, k) {
-  var longest = strarr[0];
-  var longestIndex = 0;
+  var longest = strarr[0], longestIndex = 0; answer = "";
   strarr.forEach(function(el, index){
     if(el.length > longest.length){
       longest = el;
       longestIndex = index;
     }
   });
-  // var answer = longest;
-  // for(longestIndex; longestIndex < k; longestIndex++){
-  //   answer += strarr[longestIndex];
-  // }
-  // return answer;
-  var answer = longest;
-  var test = strarr.filter(function(el, index){
-    while(longestIndex < k ){ //|| n = 0 || k <= 0
-      longestIndex++;
-      answer += strarr[longestIndex];
-    }
-    return answer;
-  });
+  for(longestIndex; longestIndex <= k; longestIndex++){
+    answer += strarr[longestIndex];
+  }
   return answer;
 }
 
-console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 4));
+console.log(longestConsec([], 0));
 
 // longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"
 //
