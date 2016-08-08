@@ -1,3 +1,5 @@
+//Compute and output the average age of the people in the ancestry data set per century. A person is //assigned to a century by taking their year of death, dividing it by 100, and rounding it up, as in //Math.ceil(person.died / 100)
+
 var ANCESTRY_FILE = "[\n  " + [
   '{"name": "Carolus Haverbeke", "sex": "m", "born": 1832, "died": 1905, "father": "Carel Haverbeke", "mother": "Maria van Brussel"}',
   '{"name": "Emma de Milliano", "sex": "f", "born": 1876, "died": 1956, "father": "Petrus de Milliano", "mother": "Sophia van Damme"}',
@@ -45,18 +47,32 @@ var ANCESTRY_FILE = "[\n  " + [
 if (typeof module != "undefined" && module.exports)
   module.exports = ANCESTRY_FILE;
 
-//Use parse to convert a JSON to a String
+//Use parse to convert a JSON
 var ancestry = JSON.parse(ANCESTRY_FILE);
 console.log(ancestry.length);
 
-function filter (array, test){
-  var passed = [];
-  for(var i = 0; i < array.length; i++){
-    if(test(array[i]))
-      passed.push(array[i]);
-  }
-  return passed;
+function average(array) {
+  function plus(a, b) { return a + b; }
+  return array.reduce(plus) / array.length;
 }
+//
+// // Your code here.
+//
+// // → 16: 43.5
+// //   17: 51.2
+// //   18: 52.8
+// //   19: 54.8
+// //   20: 84.7
+// //   21: 94
+//
+// function filter (array, test){
+//   var passed = [];
+//   for(var i = 0; i < array.length; i++){
+//     if(test(array[i]))
+//       passed.push(array[i]);
+//   }
+//   return passed;
+// }
 // console.log(filter(ancestry, function(person){
 //   return person.born > 1900 && person.born < 1925;
 // }));
@@ -65,8 +81,8 @@ function filter (array, test){
 //   return person.born > 1900 && person.born < 1925;
 // }));
 
-var byName = {}
-ancestry.forEach(function(person){
-  byName[person.name] = person;
-});
-console.log(byName["Philibert Haverbeke"]);
+// var byName = {}
+// ancestry.forEach(function(person){
+//   byName[person.name] = person;
+// });
+// console.log(byName["Philibert Haverbeke"]);
