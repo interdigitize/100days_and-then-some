@@ -21,15 +21,14 @@ function formatPrice(price){
   return "$" + price.toFixed(2);
 }
 
-while(bankBalance > total){ //infinite...ug
+while(bankBalance > total){
   total += phonePrice + calculateTax(phonePrice);
-
   var price = formatPrice(calculateTax(phonePrice));
+
   if(total < spendingThreshold){
     total += accessoryPrice + calculateTax(phonePrice);
+    console.log("Your purchase: " + formatPrice(total));
   }
-
-  console.log("Your purchase: " + formatPrice(total));
 
   if(bankBalance < total){
     console.log("Sorry, you are low on funds and can not purchase the items. If you are a spoiled child, call home. If you live in the realy world, keep saving.")
