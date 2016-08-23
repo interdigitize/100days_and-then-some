@@ -137,11 +137,56 @@
 // }
 // console.log(foo());
 
-//SWITCH case
-//The `break` is important if you want only the statement(s) in one `case` to run. If you omit `break` from a `case`, and that `case` matches or runs, execution will continue with the next `case`'s statements regardless of that `case` matching. This so called "fall through" is sometimes useful/desired:
-switch(a){
-  case 2: break;
-  case 10: break;
-  case 42: break;
-  default;
-}
+// //SWITCH case
+// //The `break` is important if you want only the statement(s) in one `case` to run. If you omit `break` from a `case`, and that `case` matches or runs, execution will continue with the next `case`'s statements regardless of that `case` matching. This so called "fall through" is sometimes useful/desired:
+// switch(a){
+//   case 2:
+// 	case 10:
+//     //Here, if `a` is either `2` or `10`, it will execute the "some cool stuff" code statements.
+// 		// some cool stuff
+// 		break;
+// 	case 42:
+// 		// other stuff
+// 		break;
+// 	default:
+// 		// fallback
+// }
+
+// Terenary Conditionals
+// var a = 40;
+// var b = (a > 41) ? "hello" : "world";
+// console.log(b);
+
+//STRICT Mode
+//ES5 added a "strict mode" to the language, which tightens the rules for certain behaviors.
+//
+// ```js
+// function foo() {
+// 	"use strict";
+//
+// 	// this code is strict mode
+//
+// 	function bar() {
+// 		// this code is strict mode
+// 	}
+// }
+//
+// // this code is not strict mode
+// ```
+//
+// Compare that to:
+//
+// ```js
+// "use strict";
+//
+// function foo() {
+// 	// this code is strict mode
+//
+// 	function bar() {
+// 		// this code is strict mode
+// 	}
+// }
+//}
+
+//// this code is strict mode
+//```
