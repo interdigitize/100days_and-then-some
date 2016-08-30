@@ -7,14 +7,18 @@
 // If the input is a empty string it must return false.
 // It must start with a hashtag (#).
 // All words must have their first letter capitalized.
-// Example Input to Output:
-//
 
 
 function generateHashtag (str) {
+  if (str.length > 140 || str.length === 0){return false;}
+  var makeCap = str.split(" ");
+  return "#" + makeCap.map(function(word){
+    return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+  }).join("");
 }
 
-console.log(generateHashtag());
+console.log(generateHashtag("Whats up world?"));
+
+// Example Input to Output:
 // " Hello there thanks for trying my Kata" => "#HelloThereThanksForTryingMyKata"
-//
 // " Hello World " => "#HelloWorld"
