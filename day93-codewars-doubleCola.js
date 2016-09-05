@@ -16,16 +16,19 @@
 
 
 function whoIsNext(names, r){
-  var thePerson;
-  for(var queue = 1; queue <= r; queue++){
-    var toTheBack = names.shift()
-    return names.push(toTheBack, toTheBack);
+  var queue = 0;
+    while (queue < r){
+      if ((queue +1) === r){
+         return names[0];
+      }
+      var toTheBack = names.shift()
+      names.push(toTheBack, toTheBack);
+      queue++;
     };
-    queue = names.length + 1;
 }
 
 names = ["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"]
-whoIsNext(names, 3);
+console.log(whoIsNext(names, 4));
 
 // whoIsNext(["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"], 1)=="Sheldon"
 // whoIsNext(["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"], 52)=="Penny"
