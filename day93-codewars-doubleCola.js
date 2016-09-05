@@ -16,16 +16,20 @@
 
 
 function whoIsNext(names, r){
-  var queue = 0;
-    while (queue < r){
-      if ((queue +1) === r){
-         return names[0];
-      }
-      var toTheBack = names.shift()
-      names.push(toTheBack, toTheBack);
-      queue++;
-    };
+  var i = 1;
+  if (i === r){
+     return names[0];
+  }
+  while (i < r){
+    var toTheBack = names.shift()
+    names.push(toTheBack, toTheBack);
+    i++;
+  };
+  return names[0];
 }
+
+
+
 
 names = ["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"]
 console.log(whoIsNext(names, 4));
