@@ -23,27 +23,28 @@ function scramble(str1, str2) {
   //split strings into arrays
   var str1Arr = str1.split(""), str2Arr = str2.split("");
   // create a copy of str1Arr
-var disappears = str1Arr.slice();
+  var disappearingArr = str1Arr.slice();
 
-    return str2Arr.reduce(function(pre, letter){
-     console.log(pre);
+  //this returns the final answer
+  return str2Arr.reduce(function(trueOrFalse, letter){
+     console.log(trueOrFalse);
       var ans;
        for(var i = 0; i < str1Arr.length; i++){
-           if (letter === disappears[i]){
+           if (letter === disappearingArr[i]){
+             disappearingArr.splice(i, 1);
              ans = true;
-             disappears.splice(i, 1);
              console.log(letter);
-             console.log(disappears);
+             console.log(disappearingArr);
            }
        }
 
-       if(pre === false){
+       if(trueOrFalse === false){
          return false;
        }
-       else if (ans === true){
+       else if (ans === true || disappearingArr === []){
          return true;
        }
-       return false;
+         return false;
      }, 0);
 
 }
@@ -60,8 +61,6 @@ var disappears = str1Arr.slice();
 //console.log(scramble('katas','steak'));
 
 console.log(scramble('scriptjava','javascript'));
-
-//[ 'a', 'a', 'b', 'b', 'c', 'a', 'm', 'a', 'o', 'm', 's', 'c', 'c', 'd', 'd' ] [ 'c', 'o', 'm', 'm', 'a', 's' ]
 
 
 // TEST
