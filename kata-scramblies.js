@@ -18,7 +18,7 @@ function scramble(str1, str2) {
            // compares a str2Arr letter to a disappearingArr letter
            if (letter === disappearingArr[i]){
              // if they are equal, it removes the letter
-             disappearingArr.splice(i, 1);  // I think this is the problem. It appears to remove all instances of a letter rather than just the first.
+             disappearingArr.splice(i, 1); 
              // sets the var ans === true
              ans = true;
              break;

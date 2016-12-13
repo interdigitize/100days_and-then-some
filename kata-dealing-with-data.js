@@ -96,6 +96,7 @@ var quotes = designQuotes.forEach(function(el){
 });
 console.log(titles)
 
+
 // filter through the titles and remove duplicates
 var noDuplicates = [];
 titles.reduce(function(pre, cur){
