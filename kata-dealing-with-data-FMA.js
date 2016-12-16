@@ -39,7 +39,8 @@ function postmanSongTitles(){
     answer.push(obj);
   });
   return answer;
-
 }
 
-console.log(postmanSongTitles(whatWasReturned));
+postmanSongTitles(whatWasReturned).forEach(function(el){
+  $('#postmanSongs').append("<li>" + el.id + ": " + el.title + "</li>");
+});
